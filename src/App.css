@@ -92,10 +92,6 @@ img {
   margin-bottom: 1rem;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .text-primary {
   color: var(--primary-color);
 }
@@ -398,6 +394,19 @@ textarea {
 input[type='submit'],
 button {
   font: inherit;
+}
+
+#input-value {
+  width: 70%;
+  border: none;
+  font-size: 1rem;
+}
+
+#input-value:focus,
+#input-value:hover {
+  outline: none;
+  border-color: #fff;
+  background: #fff;
 }
 
 .form-group {
