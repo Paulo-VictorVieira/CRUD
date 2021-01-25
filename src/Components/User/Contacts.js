@@ -1,6 +1,7 @@
 import React from 'react';
 import ContactContext from '../../Context/ContactContext';
 import ContactForm from './ContactForm';
+import ContactItem from './ContactItem';
 
 const Contacts = () => {
   const contactContext = React.useContext(ContactContext);
@@ -9,36 +10,30 @@ const Contacts = () => {
   return (
     <>
       <ContactForm />
-      <div className="wrapper animeLeft">
-        <h1 className="text-primary">Contatos</h1>
-        <table>
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Email</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {contacts.map((contact) => (
-              <tr key={contact.id}>
-                <td>{contact.id}</td>
-                <td>{contact.nome}</td>
-                <td>{contact.email}</td>
-                <td>
-                  <button className="editBtn">
-                    <i className="fas fa-edit"></i>
-                  </button>
-                  <button className="deleteBtn">
-                    <i className="far fa-trash-alt"></i>
-                  </button>
-                </td>
+      {contacts !== null && contacts.length === 0 ? (
+        <h4 className="text-center lead text-dark">
+          Por favor, adicione um contato
+        </h4>
+      ) : (
+        <div className="wrapper animeLeft">
+          <h1 className="text-primary">Contatos</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Email</th>
+                <th></th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {contacts.map((contact) => (
+                <ContactItem contact={contact} />
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </>
   );
 };

@@ -5,6 +5,8 @@ const ContactForm = () => {
   const contactContext = React.useContext(ContactContext);
   const { addContact } = contactContext;
 
+  const inputElement = React.useRef();
+
   const [contact, setContact] = React.useState({
     id: null,
     nome: '',
@@ -30,6 +32,7 @@ const ContactForm = () => {
         nome: '',
         email: '',
       });
+      inputElement.current.focus();
     }
   };
 
@@ -41,6 +44,7 @@ const ContactForm = () => {
           Nome
         </label>
         <input
+          ref={inputElement}
           className="input"
           type="text"
           name="nome"
