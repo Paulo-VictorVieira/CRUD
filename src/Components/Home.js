@@ -12,11 +12,11 @@ const Home = () => {
         <div>
           <h1 className="x-large text-center">React - CRUD</h1>
           <p className="text-center lead">
-            Sistema para adicionar, editar e deletar usuários.
+            Sistema para adicionar, editar e deletar contatos.
           </p>
           <p className="text-center lead">
             Ir para
-            <Link to="user"> Usuários</Link>
+            <Link to="contacts"> Contatos</Link>
           </p>
         </div>
       </div>
