@@ -3,7 +3,7 @@ import ContactContext from '../../Context/ContactContext';
 
 const ContactItem = ({ contact }) => {
   const contactContext = React.useContext(ContactContext);
-  const { deleteContact } = contactContext;
+  const { setCurrent, deleteContact } = contactContext;
 
   const { id, nome, email } = contact;
 
@@ -22,7 +22,13 @@ const ContactItem = ({ contact }) => {
           <input type="email" id="input-value" value={email} />
         </td>
         <td>
-          <button className="editBtn">
+          <button
+            className="editBtn"
+            onClick={() => {
+              console.log(contact);
+              setCurrent(contact);
+            }}
+          >
             <i className="fas fa-edit"></i>
           </button>
           <button className="deleteBtn" onClick={handleDelete}>
@@ -32,6 +38,7 @@ const ContactItem = ({ contact }) => {
       </tr>
     </>
   );
+
   return <>{table}</>;
 };
 

@@ -40,6 +40,21 @@ const ContactState = ({ children }) => {
     dispatch({ type: ADD_CONTACT, payload: contact });
   };
 
+  // Update Contact
+  const updateContact = (contact) => {
+    dispatch({ type: UPDATE_CONTACT, payload: contact });
+  };
+
+  // Set Current Contact
+  const setCurrent = (contact) => {
+    dispatch({ type: SET_CURRENT, payload: contact });
+  };
+
+  // Clear Current Contact
+  const clearCurrent = () => {
+    dispatch({ type: CLEAR_CURRENT });
+  };
+
   // Delete Contact
   const deleteContact = (id) => {
     dispatch({ type: DELETE_CONTACT, payload: id });
@@ -54,6 +69,9 @@ const ContactState = ({ children }) => {
         error: state.error,
         addContact,
         deleteContact,
+        updateContact,
+        setCurrent,
+        clearCurrent,
       }}
     >
       {children}

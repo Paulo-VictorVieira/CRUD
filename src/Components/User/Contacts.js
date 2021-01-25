@@ -1,11 +1,12 @@
 import React from 'react';
 import ContactContext from '../../Context/ContactContext';
+import ContactEdit from './ContactEdit';
 import ContactForm from './ContactForm';
 import ContactItem from './ContactItem';
 
 const Contacts = () => {
   const contactContext = React.useContext(ContactContext);
-  const { contacts } = contactContext;
+  const { contacts, current } = contactContext;
 
   return (
     <>
@@ -27,9 +28,13 @@ const Contacts = () => {
               </tr>
             </thead>
             <tbody>
-              {contacts.map((contact) => (
-                <ContactItem contact={contact} />
-              ))}
+              {current ? (
+                <ContactEdit />
+              ) : (
+                contacts.map((contact) => (
+                  <ContactItem key={contact.id} contact={contact} />
+                ))
+              )}
             </tbody>
           </table>
         </div>
