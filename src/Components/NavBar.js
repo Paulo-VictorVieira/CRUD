@@ -1,21 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 const NavBar = ({ icon, title }) => {
   const guestLinks = (
     <>
       <li>
         {' '}
-        <Link to="/" end className="link">
+        <NavLink to="/" end className="link" activeClassName="active">
           Home
-        </Link>
+        </NavLink>
       </li>
       <li>
         {' '}
-        <Link to="user" className="link">
-          Usuário
-        </Link>
+        <NavLink to="contacts" className="link" activeClassName="active">
+          Contatos
+        </NavLink>
       </li>
     </>
   );
