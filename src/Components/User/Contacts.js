@@ -28,12 +28,12 @@ const Contacts = () => {
               </tr>
             </thead>
             <tbody>
-              {current ? (
-                <ContactEdit />
-              ) : (
+              {current === null ? (
                 contacts.map((contact) => (
                   <ContactItem key={contact.id} contact={contact} />
                 ))
+              ) : (
+                <ContactEdit />
               )}
             </tbody>
           </table>

@@ -53,10 +53,13 @@ img {
 }
 
 /* Utilities */
+
 .App {
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 10rem);
+  min-height: calc(
+    100vh + 0.1rem
+  ); /* Técnica para evitar o salto de scrollbar */
 }
 
 .container {

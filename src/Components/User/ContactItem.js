@@ -21,11 +21,11 @@ const ContactItem = ({ contact }) => {
         <td>
           <input type="email" id="input-value" value={email} />
         </td>
+
         <td>
           <button
             className="editBtn"
             onClick={() => {
-              console.log(contact);
               setCurrent(contact);
             }}
           >
