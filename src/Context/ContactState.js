@@ -60,6 +60,16 @@ const ContactState = ({ children }) => {
     dispatch({ type: DELETE_CONTACT, payload: id });
   };
 
+  // Filter Contacts
+  const filterContacts = (text) => {
+    dispatch({ type: FILTER_CONTACTS, payload: text });
+  };
+
+  // Clear Filter
+  const clearFilter = () => {
+    dispatch({ type: CLEAR_FILTER });
+  };
+
   return (
     <ContactContext.Provider
       value={{
@@ -72,6 +82,8 @@ const ContactState = ({ children }) => {
         updateContact,
         setCurrent,
         clearCurrent,
+        filterContacts,
+        clearFilter,
       }}
     >
       {children}
