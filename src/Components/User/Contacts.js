@@ -1,12 +1,34 @@
 import React from 'react';
 import ContactContext from '../../Context/ContactContext';
 import ContactEdit from './ContactEdit';
+import ContactFilter from './ContactFilter';
 import ContactForm from './ContactForm';
 import ContactItem from './ContactItem';
 
 const Contacts = () => {
   const contactContext = React.useContext(ContactContext);
-  const { contacts, current } = contactContext;
+  const { contacts, current, filtered } = contactContext;
+
+  const showCurrent = (
+    <>
+      {current === null ? (
+        contacts.map((contact) => (
+          <ContactItem key={contact.id} contact={contact} />
+        ))
+      ) : (
+        <ContactEdit />
+      )}
+    </>
+  );
+
+  const showFiltered = (
+    <>
+      {filtered &&
+        filtered.map((contact) => (
+          <ContactItem key={contact.id} contact={contact} />
+        ))}
+    </>
+  );
 
   return (
     <>
@@ -18,6 +40,7 @@ const Contacts = () => {
       ) : (
         <div className="wrapper animeLeft">
           <h1 className="text-primary">Contatos</h1>
+          <ContactFilter />
           <table>
             <thead>
               <tr>
@@ -27,15 +50,7 @@ const Contacts = () => {
                 <th></th>
               </tr>
             </thead>
-            <tbody>
-              {current === null ? (
-                contacts.map((contact) => (
-                  <ContactItem key={contact.id} contact={contact} />
-                ))
-              ) : (
-                <ContactEdit />
-              )}
-            </tbody>
+            <tbody>{filtered !== null ? showFiltered : showCurrent}</tbody>
           </table>
         </div>
       )}

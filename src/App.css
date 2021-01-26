@@ -372,7 +372,7 @@ table td {
 
 /* Forms */
 input {
-  margin: 1.2rem 0;
+  margin: 1.2rem 0 0.3rem 0;
 }
 
 .form-text {
