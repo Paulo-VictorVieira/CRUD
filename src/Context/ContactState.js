@@ -3,7 +3,6 @@ import ContactContext from './ContactContext';
 import ContactReducer from './ContactReducer';
 
 import {
-  GET_CONTACTS,
   ADD_CONTACT,
   DELETE_CONTACT,
   SET_CURRENT,
@@ -11,6 +10,7 @@ import {
   UPDATE_CONTACT,
   FILTER_CONTACTS,
   CLEAR_FILTER,
+  CONTACT_ERROR,
 } from './types';
 
 const ContactState = ({ children }) => {
